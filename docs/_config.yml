@@ -1,0 +1,4 @@
+theme: jekyll-theme-minimal
+title: Static Portfolio Site
+description: AWS static hosting architecture documentation
+markdown: kramdown
