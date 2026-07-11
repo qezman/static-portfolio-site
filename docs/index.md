@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 **PROJECT 1**
 
 The Global Launch
