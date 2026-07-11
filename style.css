@@ -7,6 +7,9 @@
   --accent: #7c6af7;
   --shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
   --radius: 14px;
+  --nav-h: 4rem;
+  --glass-bg: color-mix(in srgb, var(--bg) 68%, transparent);
+  --glass-border: color-mix(in srgb, var(--border) 55%, transparent);
 }
 
 [data-theme="light"] {
@@ -17,6 +20,8 @@
   --muted: #5c5c5c;
   --accent: #5b4df2;
   --shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+  --glass-bg: color-mix(in srgb, var(--bg) 78%, transparent);
+  --glass-border: color-mix(in srgb, var(--border) 70%, transparent);
 }
 
 * {
@@ -27,6 +32,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
 }
 
 body {
@@ -74,15 +80,47 @@ a:hover {
 }
 
 .top {
-  border-bottom: 1px solid var(--border);
+  padding-top: var(--nav-h);
 }
 
 .bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  max-width: none;
   display: flex;
   align-items: center;
   gap: 1rem;
   justify-content: space-between;
-  padding: 1rem 1.25rem;
+  min-height: var(--nav-h);
+  padding: 0.75rem 1.25rem;
+  background: var(--glass-bg);
+  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px) saturate(1.35);
+  -webkit-backdrop-filter: blur(14px) saturate(1.35);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bar.isScrolled {
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--border) 80%, transparent);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="light"] .bar.isScrolled {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .bar {
+    background: color-mix(in srgb, var(--surface) 94%, var(--bg));
+  }
 }
 
 .brand {
@@ -330,7 +368,7 @@ footer a {
   flex-direction: column;
   justify-content: center;
   padding: 4rem 1.25rem;
-  min-height: 50vh;
+  min-height: calc(50vh - var(--nav-h));
 }
 
 .notfound h1 {

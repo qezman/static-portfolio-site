@@ -16,6 +16,13 @@ function applyTheme(theme) {
 const savedTheme = localStorage.getItem(THEME_KEY);
 if (savedTheme) applyTheme(savedTheme);
 
+const bar = $(".bar");
+if (bar) {
+  const onScroll = () => bar.classList.toggle("isScrolled", window.scrollY > 8);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
+
 if (themeBtn) {
   themeBtn.addEventListener("click", () => {
     const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
