@@ -30,4 +30,4 @@ Push to `main` → workflow assumes the deploy role → `aws s3 sync` mirrors th
 
 ## Full Documentation
 
-See 'https://qezman.github.io/static-portfolio-site/' for the complete implementation walkthrough, architecture diagram, and debugging log.
+See 'https://qezman.github.io/The-Global-Launch-static-portfolio-site/' for the complete implementation walkthrough, architecture diagram, and debugging log.
