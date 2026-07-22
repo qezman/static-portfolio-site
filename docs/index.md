@@ -12,7 +12,7 @@ Technical Implementation Documentation - Final Architecture
 
 Internship Deliverable - DecodeLabs Cloud Computing (AWS/Azure) Tools: AWS S3, CloudFront, IAM, ACM, Route 53, GitHub Actions (OIDC)
 
-Date:00/07/2026 Author: Kazeem Jimoh
+Date:13/07/2026 Author: Kazeem Jimoh
 
 **Live URL:** [https://static-portfolio-site.qossim005.online](https://static-portfolio-site.qossim005.online/)
 

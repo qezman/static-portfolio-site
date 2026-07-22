@@ -4,13 +4,9 @@ A static portfolio site hosted on AWS with no servers - private S3 origin behind
 
 **Live site:** https://static-portfolio-site.qossim005.online
 
-## Architecture
+## Architecture Overview
 
-```
-Browser → Route 53 → CloudFront (CDN/TLS) → S3 bucket (private, via OAC)
-
-GitHub push → GitHub Actions → IAM role (OIDC) → sync to S3 + invalidate CloudFront
-```
+![Infrastructure Architecture](./architecture.png)
 
 - **S3** - private bucket, holds `index.html` / `404.html`, not publicly reachable
 - **CloudFront** - public entry point, HTTPS, global edge caching, reaches S3 via Origin Access Control
